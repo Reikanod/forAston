@@ -1,11 +1,16 @@
 public class CatFor2_5 extends AnimalFor2_5 {
-    String name;
+    private String name;
+    private boolean bellyful;
+    private int bellyVolume;
+
 
     public CatFor2_5(String name){
         this.name = name;
         countCats += 1;
         this.limSwim = 0;
         this.limRun = 200;
+        this.bellyful = false;
+        this.bellyVolume = (int) (Math.random() * 10) + 1;
     }
 
     @Override
@@ -42,14 +47,35 @@ public class CatFor2_5 extends AnimalFor2_5 {
         return "Если это видишь - в методе checkLimits ошибка";
     }
 
-    public void eatBowl(int amountIntoCat) {
+    public void eatBowl() {
         if (BowlForCats.getFoodAmount() == 0) {
             System.out.println("Не издевайся над животными. Тарелка пуста!");
-        } else if (BowlForCats.getFoodAmount() < amountIntoCat) {
+        } else if (BowlForCats.getFoodAmount() < bellyVolume) {
             System.out.println("У шерстяного слишком большие запросы. Столько еды в миске нет");
         } else {
-            BowlForCats.setFoodAmount(BowlForCats.getFoodAmount() - amountIntoCat);
+            BowlForCats.setFoodAmount(BowlForCats.getFoodAmount() - bellyVolume);
             System.out.println(this.name + " совершила ритуал поглощения. Еды осталось: " + BowlForCats.getFoodAmount());
         }
+    }
+
+    public boolean isBellyful() {
+        return bellyful;
+    }
+    public void setBellyful(boolean bellyStatus) {
+        bellyful = bellyStatus;
+    }
+
+    public int getBellyVolume() {
+        return bellyVolume;
+    }
+    public void setBellyVolume(int volume) {
+        bellyVolume = volume;
+    }
+
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
     }
 }

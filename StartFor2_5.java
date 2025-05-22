@@ -11,7 +11,29 @@ public class StartFor2_5 {
         murka.swim(5);
         System.out.println("Котев всего было: " + AnimalFor2_5.countCats + " шт.\n");
 
-        BowlForCats.setFoodAmount(100);
-        murka.eatBowl(10);
+        BowlForCats.setFoodAmount(30);
+        System.out.println("Количество еды в миске: " + BowlForCats.getFoodAmount());
+        CatFor2_5[] cats = new CatFor2_5[7];
+
+        for (int i = 0; i < cats.length; i++) {
+            cats[i] = new CatFor2_5("Мурка " + (i + 1));
+        }
+
+        for (int i = 0; i < cats.length; i++) {
+            if (BowlForCats.getFoodAmount() < cats[i].getBellyVolume()) {
+                System.out.println("Мурка " + cats[i].getName() + " осталась без еды и вынуждена прибегнуть к насилию");
+            } else {
+                cats[i].eatBowl();
+                cats[i].setBellyful(true);
+            }
+        }
+        System.out.println("\n");
+        for (int i = 0; i < cats.length; i++) {
+            System.out.println("Животик объекта " + cats[i].getName() + " полон: " + cats[i].isBellyful());
+        }
+
+        System.out.println("\n Пополняем миску с едой...");
+        BowlForCats.setFoodAmount(30);
+        System.out.println("<\n Маска пополнена. Текущий объем миски: " + BowlForCats.getFoodAmount());
     }
 }
