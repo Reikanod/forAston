@@ -1,7 +1,5 @@
 interface GeomShapeInterface {
-/*    double getSquare(); // площадь
-    double getArea(); // периметр
-*/
+
     default double getPerimeter() {
         if (this instanceof Circle) {
             return 2 * Math.PI * ((Circle) this).getRadius();

@@ -15,11 +15,4 @@ public class Triangle extends Shapes implements GeomShapeInterface {
     public int[] getSides() {
         return new int[]{a, b, c};
     }
-/*
-    @Override
-    public double getSquare() {
-        double s = (double) (a + b + c) / 2;
-        return Math.sqrt(s * (s - a) * (s - b) * (s - c));
-    }
-    */
 }
