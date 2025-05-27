@@ -82,6 +82,12 @@ public class mainFile {
             System.out.println(e.getMessage());
         }
 
-
+        System.out.println("\nВыбросить ошибку ArrayIndexOutOfBoundsException");
+        int[] arr = {1, 2};
+        try {
+            System.out.println(arr[2]);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("ОЙБАЛБЕС: " + e.getMessage());
+        }
     }
 }
